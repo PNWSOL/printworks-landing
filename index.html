@@ -265,31 +265,38 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 768px) {
-    /* 1. Hide the navigation links to save space */
-    nav { 
+    /* 1. Hide the links, but NOT the phone number */
+    nav a:not(.phone-link) { 
         display: none !important; 
     }
 
-    /* 2. Slim down the header */
-    header {
-        flex-direction: column !important; /* Stacks logo and phone number */
-        padding: 10px 5px !important;    /* Reduces the height significantly */
-        gap: 5px;                        /* Tightens space between logo and number */
+    /* 2. Make sure the navigation area itself stays visible for the number */
+    nav {
+        display: flex !important;
+        justify-content: center;
+        margin-top: 5px;
     }
 
-    /* 3. Ensure the Logo isn't too huge */
+    /* 3. Slim header layout */
+    header {
+        flex-direction: column !important;
+        padding: 10px 5px !important;
+        gap: 5px;
+    }
+
+    /* 4. Keep logo size under control */
     .logo-container img, header img {
-        max-height: 60px;               /* Adjust this number to make logo smaller/larger */
+        max-height: 50px;
         width: auto;
     }
 
-    /* 4. Keep your big background image contained */
+    /* 5. Scale the big background image */
     .hero-image, .background-image { 
         max-width: 100% !important; 
         height: auto !important;
     }
 
-    /* 5. Existing layout for the rest of the page */
+    /* 6. Footer and layout maintenance */
     .step-row { grid-template-columns: 1fr; }
     .footer-logo { height: 80px; }
         }

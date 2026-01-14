@@ -265,30 +265,33 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 @media (max-width: 768px) {
-    /* 1. Make the menu visible again */
+    /* 1. Hide the navigation links to save space */
     nav { 
-        display: flex !important; 
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 15px;
+        display: none !important; 
     }
 
-    /* 2. Stack the header (Logo, Nav, Phone) vertically */
+    /* 2. Slim down the header */
     header {
-        flex-direction: column !important;
-        text-align: center;
-        padding: 20px 10px;
+        flex-direction: column !important; /* Stacks logo and phone number */
+        padding: 10px 5px !important;    /* Reduces the height significantly */
+        gap: 5px;                        /* Tightens space between logo and number */
     }
 
-    /* 3. Shrink the big image so it fits the screen */
-    .logo-container img, .hero-image, .background-image { 
+    /* 3. Ensure the Logo isn't too huge */
+    .logo-container img, header img {
+        max-height: 60px;               /* Adjust this number to make logo smaller/larger */
+        width: auto;
+    }
+
+    /* 4. Keep your big background image contained */
+    .hero-image, .background-image { 
         max-width: 100% !important; 
         height: auto !important;
     }
 
-    /* 4. Keep your existing mobile layout for steps */
+    /* 5. Existing layout for the rest of the page */
     .step-row { grid-template-columns: 1fr; }
-    .footer-logo { height: 100px; }
+    .footer-logo { height: 80px; }
         }
     </style>
 </head>

@@ -264,12 +264,31 @@
         .fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        @media (max-width: 768px) {
-            .section-title { font-size: 2rem; }
-            .brutalist-card { padding: 30px; margin-top: 20px; }
-            nav { display: none; }
-            .step-row { grid-template-columns: 1fr; }
-            .footer-logo { height: 100px; }
+@media (max-width: 768px) {
+    /* 1. Make the menu visible again */
+    nav { 
+        display: flex !important; 
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+
+    /* 2. Stack the header (Logo, Nav, Phone) vertically */
+    header {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 20px 10px;
+    }
+
+    /* 3. Shrink the big image so it fits the screen */
+    .logo-container img, .hero-image, .background-image { 
+        max-width: 100% !important; 
+        height: auto !important;
+    }
+
+    /* 4. Keep your existing mobile layout for steps */
+    .step-row { grid-template-columns: 1fr; }
+    .footer-logo { height: 100px; }
         }
     </style>
 </head>
